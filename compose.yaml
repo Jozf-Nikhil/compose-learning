@@ -1,0 +1,15 @@
+services:
+
+  web:
+    build: .
+    container_name: compose-web
+    ports:
+      - "3000:3000"
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:alpine
+    container_name: compose-redis
+    ports:
+      - "6379:6379"
